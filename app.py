@@ -333,12 +333,12 @@ def encrypt():
                 # SMTP mail send to given email addresses
                 s = smtplib.SMTP('smtp.gmail.com', 587)
                 s.starttls()
-                s.login("amit.adhikari@tnu.in", "amit@tnu")
+                s.login("your@gmail.com", "xxxxpasswordxxxxx")
                 otpcount=0
                 for i in email:
                     SUBJECT = "Decryption Key"
                     message = 'Subject: {}\n\n{}'.format(SUBJECT, str(allotps[otpcount]))
-                    s.sendmail("amit.adhikari@tnu.in",i, message)
+                    s.sendmail("your@gmail.com",i, message)
                     otpcount=otpcount+1
                 s.quit()
                 return redirect(url_for('decrypt'))
