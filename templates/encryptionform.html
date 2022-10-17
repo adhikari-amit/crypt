@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <title>Encryption</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='images/lock.png')}}" />
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/css_003.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/css.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/css_002.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+
+
+</head>
+
+<body>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="wrapper">
+                        <div class="row no-gutters mb-5">
+                            <div class="col-md-7">
+                                <div class="contact-wrap w-100 p-md-5 p-4">
+                                    <h3 class="mb-4">Encrypt Your File</h3>
+                                    {% if error %} <div id="form-message-warning" class="mb-4"> {{error}}</div> {% endif
+                                    %}
+                                    <form action="http://localhost:5000/encrypt" method="POST"
+                                        enctype="multipart/form-data" class="contactForm">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="label" for="email">Email 01</label>
+                                                    <input type="email" class="form-control" name="email00" id="email"
+                                                        placeholder="Email" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="label" for="email">Email 02</label>
+                                                    <input type="email" class="form-control" name="email01" id="email"
+                                                        placeholder="Email" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="label" for="email">Email 03</label>
+                                                    <input type="email" class="form-control" name="email02" id="email"
+                                                        placeholder="Email" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="label" for="email">Email 04</label>
+                                                    <input type="email" class="form-control" name="email03" id="email"
+                                                        placeholder="Email" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="formFile" class="label">Choose File</label>
+                                                    <input class="form-control" type="file" id="Inputfile" name="file"
+                                                        onchange="return fileValidation()" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <input type="submit" value="Encrypt" class="btn btn-primary">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-5 d-flex align-items-stretch">
+                                <div class="wrapper">
+                                    <img src="{{ url_for('static', filename='images/encryptionimage.jpg')}}" alt=""
+                                        style="width:100%;
+                              height:100%;">
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{{ url_for('static', filename='js/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/popper.js+bootstrap.min.js.pagespeed.jc.3ca9D1df5x.js')}}"></script>
+    <script>
+        function fileValidation() {
+            var fileInput =
+                document.getElementById('Inputfile');
+
+            var filePath = fileInput.value;
+
+            // Allowing file type
+            var allowedExtensions =
+                /(\.jpg|\.jpeg|\.png|\.txt|\.py|\.pdf|\.c)$/i;
+
+            if (!allowedExtensions.exec(filePath)) {
+                alert('Invalid file type');
+                fileInput.value = '';
+                return false;
+            }
+
+        }
+    </script>
+
+
+</body>
+
+</html>
